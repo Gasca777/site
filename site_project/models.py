@@ -6,6 +6,10 @@ from django.utils.translation import gettext as _
 class Empresa(models.Model):
     nombre = models.CharField(_("Nombre"), max_length=20)
 
+    class Meta:
+        verbose_name = _("Empresa")
+        verbose_name_plural = _("Empresas")
+
     def __str__(self):
         return self.nombre
 
