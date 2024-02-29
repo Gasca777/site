@@ -16,4 +16,8 @@ urlpatterns = [
     path('tipo/insert_update', views.alta_tipo, name='AltaTipo'),
     path('tipo/insert_update/<int:id>', views.alta_tipo, name='EditarTipo'),
     path('tipo/delete/<int:id>', views.eliminar_tipo, name='EliminarTipo'),
+    path('patch', views.index_patch, name='IndexPatch'),
+    path('patch/insert_update', views.alta_patch, name='AltaPatch'),
+    path('patch/insert_update/<int:id>', views.alta_patch, name='EditarPatch'),
+    path('patch/delete/<int:id>', views.eliminar_patch, name='EliminarPatch'),
 ]

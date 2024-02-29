@@ -19,3 +19,9 @@ class TipoForm(forms.ModelForm):
     class Meta:
         model = Tipo
         fields = '__all__'
+
+
+class PatchForm(forms.ModelForm):
+    class Meta:
+        model = Patch
+        fields = "__all__"

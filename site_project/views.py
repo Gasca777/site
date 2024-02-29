@@ -132,3 +132,45 @@ def alta_tipo(request, id=None):
 def eliminar_tipo(request, id):
     Tipo.objects.get(pk=id).delete()
     return redirect('IndexTipo')
+
+
+def index_patch(request):
+    patchs = Patch.objects.all()
+    return render(request, 'patch/index.html', {
+        'patchs': patchs,
+    })
+
+
+def alta_patch(request, id=None):
+    form = PatchForm()
+    mensaje = None
+    delete = False
+
+    if id:
+        patch = Patch.objects.get(pk=id)
+        form = PatchForm(instance=patch)
+        delete = True
+
+    if request.method == 'POST':
+
+        if id:
+            form = PatchForm(request.POST, instance=patch)
+        else:
+            form = PatchForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('IndexPatch')
+        else:
+            mensaje = 'Formulario invalido'
+
+    return render(request, 'patch/insert_update.html', {
+        'form': form,
+        'mensaje': mensaje,
+        'delete': delete,
+    })
+
+
+def eliminar_patch(request, id):
+    Patch.objects.get(pk=id).delete()
+    return redirect('IndexPatch')

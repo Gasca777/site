@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Index Patch
+{% endblock %}
+
+{% block content %}
+  <a href="{% url 'AltaPatch' %}">Nuevo Patch</a>
+  <ol>
+    {% for patch in patchs %}
+      <li>
+        <a href="{% url 'EditarPatch' patch.id %}">{{ patch }}</a>
+      </li>
+    {% endfor %}
+  </ol>
+{% endblock %}
