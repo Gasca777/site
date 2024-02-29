@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  Insert/Update
+  Crear Editar Area
 {% endblock %}
 
 {% block content %}
@@ -10,7 +10,7 @@
     {{ form }}
     <button type="submit">Insertar</button>
     {% if delete %}
-      <a href="{% url 'EliminarEmpresa' form.instance.pk %}">Eliminar</a>
+      <a href="{% url 'EliminarArea' form.instance.pk %}">Eliminar</a>
     {% endif %}
   </form>
 {% endblock %}

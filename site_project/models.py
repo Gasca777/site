@@ -24,7 +24,7 @@ class Area(models.Model):
         verbose_name_plural = _("Areas")
 
     def __str__(self):
-        return self.nombre
+        return self.nombre + ' ' + self.empresa.nombre
 
 
 class Tipo(models.Model):

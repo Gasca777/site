@@ -9,7 +9,7 @@
   <ol>
     {% for empresa in empresas %}
       <li>
-        <a href="{% url 'EditarEmpresa' empresa.id %}">{{ empresa.nombre }}</a>
+        <a href="{% url 'EditarEmpresa' empresa.id %}">{{ empresa }}</a>
       </li>
     {% endfor %}
   </ol>
