@@ -8,7 +8,9 @@
   <a href="{% url 'AltaEmpresa' %}">Nueva empresa</a>
   <ol>
     {% for empresa in empresas %}
-      <li>{{ empresa.nombre }}</li>
+      <li>
+        <a href="{% url 'EditarEmpresa' empresa.id %}">{{ empresa.nombre }}</a>
+      </li>
     {% endfor %}
   </ol>
 {% endblock %}

@@ -9,5 +9,8 @@
     {% csrf_token %}
     {{ form }}
     <button type="submit">Insertar</button>
+    {% if edit %}
+      <a href="{% url 'EliminarEmpresa' form.instance.pk %}" type="button">Eliminar</a>
+    {% endif %}
   </form>
 {% endblock %}
