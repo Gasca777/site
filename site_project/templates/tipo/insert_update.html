@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Crear Editar Tipo
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Insertar</button>
+    {% if delete %}
+    <a href="{% url "EliminarTipo" form.instance.pk %}">Eliminar</a>
+    {% endif %}
+  </form>
+{% endblock %}

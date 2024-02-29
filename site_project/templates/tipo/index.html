@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Index Tipo
+{% endblock %}
+
+{% block content %}
+  <a href="{% url 'AltaTipo' %}">Nuevo tipo</a>
+  <ol>
+    {% for tipo in tipos %}
+      <li>
+        <a href="{% url 'EditarTipo' tipo.id %}">{{ tipo }}</a>
+      </li>
+    {% endfor %}
+  </ol>
+{% endblock %}

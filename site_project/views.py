@@ -90,3 +90,45 @@ def alta_area(request, id=None):
 def eliminar_area(request, id):
     Area.objects.get(pk=id).delete()
     return redirect('IndexArea')
+
+
+def index_tipo(request):
+    tipos = Tipo.objects.all()
+    return render(request, 'tipo/index.html', {
+        'tipos': tipos
+    })
+
+
+def alta_tipo(request, id=None):
+    form = TipoForm()
+    mensaje = None
+    delete = False
+
+    if id:
+        tipo = Tipo.objects.get(pk=id)
+        form = TipoForm(instance=tipo)
+        delete = True
+
+    if request.method == 'POST':
+
+        if id:
+            form = TipoForm(request.POST, instance=tipo)
+        else:
+            form = TipoForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('IndexTipo')
+        else:
+            mensaje = 'Formulario invalido'
+
+    return render(request, 'tipo/insert_update.html', {
+        'form': form,
+        'mensaje': mensaje,
+        'delete': delete,
+    })
+
+
+def eliminar_tipo(request, id):
+    Tipo.objects.get(pk=id).delete()
+    return redirect('IndexTipo')

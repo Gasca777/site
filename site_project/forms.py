@@ -8,7 +8,14 @@ class EmpresaForm(forms.ModelForm):
         model = Empresa
         fields = '__all__'
 
+
 class AreaForm(forms.ModelForm):
     class Meta:
-        model=Area
+        model = Area
+        fields = '__all__'
+
+
+class TipoForm(forms.ModelForm):
+    class Meta:
+        model = Tipo
         fields = '__all__'

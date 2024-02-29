@@ -12,4 +12,8 @@ urlpatterns = [
     path('area/insert_update', views.alta_area, name='AltaArea'),
     path('area/insert_update/<int:id>', views.alta_area, name='EditarArea'),
     path('area/delete/<int:id>', views.eliminar_area, name='EliminarArea'),
+    path('tipo', views.index_tipo, name='IndexTipo'),
+    path('tipo/insert_update', views.alta_tipo, name='AltaTipo'),
+    path('tipo/insert_update/<int:id>', views.alta_tipo, name='EditarTipo'),
+    path('tipo/delete/<int:id>', views.eliminar_tipo, name='EliminarTipo'),
 ]
