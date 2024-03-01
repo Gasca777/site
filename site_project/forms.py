@@ -25,3 +25,10 @@ class PatchForm(forms.ModelForm):
     class Meta:
         model = Patch
         fields = "__all__"
+
+
+class SwitchForm(forms.ModelForm):
+
+    class Meta:
+        model = Switch
+        fields = ("__all__")

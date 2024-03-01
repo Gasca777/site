@@ -174,3 +174,45 @@ def alta_patch(request, id=None):
 def eliminar_patch(request, id):
     Patch.objects.get(pk=id).delete()
     return redirect('IndexPatch')
+
+
+def index_switch(request):
+    switchs = Switch.objects.all()
+    return render(request, 'switch/index.html', {
+        'switchs': switchs
+    })
+
+
+def alta_switch(request, id=None):
+    form = SwitchForm()
+    mensaje = None
+    delete = False
+
+    if id:
+        switch = Switch.objects.get(pk=id)
+        form = SwitchForm(instance=switch)
+        delete = True
+
+    if request.method == 'POST':
+
+        if id:
+            form = SwitchForm(request.POST, instance=switch)
+        else:
+            form = SwitchForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('IndexSwitch')
+        else:
+            mensaje = 'Formulario invalido'
+
+    return render(request, 'switch/insert_update.html', {
+        'form': form,
+        'mensaje': mensaje,
+        'delete': delete,
+    })
+
+
+def eliminar_switch(request, id):
+    Switch.objects.get(pk=id).delete()
+    return redirect('IndexSwitch')

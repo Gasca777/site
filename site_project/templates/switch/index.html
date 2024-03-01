@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Index Switch
+{% endblock %}
+
+{% block content %}
+  <a href="{% url 'AltaSwitch' %}">NuevoSwitch</a>
+  <ol>
+    {% for switch in switchs %}
+      <li>
+        <a href="{% url 'EditarSwitch' switch.id %}">{{ switch }}</a>
+      </li>
+    {% endfor %}
+  </ol>
+{% endblock %}

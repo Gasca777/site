@@ -20,4 +20,9 @@ urlpatterns = [
     path('patch/insert_update', views.alta_patch, name='AltaPatch'),
     path('patch/insert_update/<int:id>', views.alta_patch, name='EditarPatch'),
     path('patch/delete/<int:id>', views.eliminar_patch, name='EliminarPatch'),
+    path('switch', views.index_switch, name='IndexSwitch'),
+    path('switch/insert_update', views.alta_switch, name='AltaSwitch'),
+    path('switch/insert_update/<int:id>',
+         views.alta_switch, name='EditarSwitch'),
+    path('switch/delete/<int:id>', views.eliminar_switch, name='EliminarSwitch'),
 ]
