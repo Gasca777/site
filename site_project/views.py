@@ -256,5 +256,5 @@ def alta_puerto_switch(request, id=None):
 
 
 def eliminar_puerto_switch(request, id):
-    PuertoSwitch.objects.get(pk=id)
+    PuertoSwitch.objects.get(pk=id).delete()
     return redirect('IndexPuertoSwitch')

@@ -84,7 +84,7 @@ class PuertoSwitch(models.Model):
         verbose_name_plural = _("PuertosSwitch")
 
     def __str__(self):
-        return str(self.numero)
+        return "puerto " + str(self.numero) + " " + self.switch.nombre
 
 
 class PuertoPatch(models.Model):
