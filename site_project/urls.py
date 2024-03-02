@@ -25,4 +25,11 @@ urlpatterns = [
     path('switch/insert_update/<int:id>',
          views.alta_switch, name='EditarSwitch'),
     path('switch/delete/<int:id>', views.eliminar_switch, name='EliminarSwitch'),
+    path('puerto_switch', views.index_puerto_switch, name='IndexPuertoSwitch'),
+    path('puerto_switch/insert_update',
+         views.alta_puerto_switch, name='AltaPuertoSwitch'),
+    path('puerto_switch/insert_update/<int:id>',
+         views.alta_puerto_switch, name='EditarPuertoSwitch'),
+    path('puerto_switch/delete/<int:id>',
+         views.eliminar_puerto_switch, name='EliminarPuertoSwitch'),
 ]

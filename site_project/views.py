@@ -216,3 +216,45 @@ def alta_switch(request, id=None):
 def eliminar_switch(request, id):
     Switch.objects.get(pk=id).delete()
     return redirect('IndexSwitch')
+
+
+def index_puerto_switch(request):
+    puertosSwitch = PuertoSwitch.objects.all()
+    return render(request, 'puertoSwitch/index.html', {
+        'puertosSwitch': puertosSwitch
+    })
+
+
+def alta_puerto_switch(request, id=None):
+    form = PuertoSwitchForm()
+    mensaje = None
+    delete = False
+
+    if id:
+        puertoSwitch = PuertoSwitch.objects.get(pk=id)
+        form = PuertoSwitchForm(instance=puertoSwitch)
+        delete = True
+
+    if request.method == 'POST':
+
+        if id:
+            form = PuertoSwitchForm(request.POST, instance=puertoSwitch)
+        else:
+            form = PuertoSwitchForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('IndexPuertoSwitch')
+        else:
+            mensaje = 'Formulario invalido'
+
+    return render(request, 'puertoSwitch/insert_update.html', {
+        'form': form,
+        'mensaje': mensaje,
+        'delete': delete,
+    })
+
+
+def eliminar_puerto_switch(request, id):
+    PuertoSwitch.objects.get(pk=id)
+    return redirect('IndexPuertoSwitch')

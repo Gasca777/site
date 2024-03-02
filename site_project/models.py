@@ -76,7 +76,7 @@ class Maquina(models.Model):
 
 class PuertoSwitch(models.Model):
     switch = models.ForeignKey(Switch, verbose_name=_(
-        "Puerto Switch"), on_delete=models.CASCADE)
+        "Switch"), on_delete=models.CASCADE)
     numero = models.IntegerField(_("Número"))
 
     class Meta:

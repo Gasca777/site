@@ -28,7 +28,12 @@ class PatchForm(forms.ModelForm):
 
 
 class SwitchForm(forms.ModelForm):
-
     class Meta:
         model = Switch
         fields = ("__all__")
+
+
+class PuertoSwitchForm(forms.ModelForm):
+    class Meta:
+        model = PuertoSwitch
+        fields = "__all__"
