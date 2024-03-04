@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Index Puerto Patch
+{% endblock %}
+
+{% block content %}
+  <a href="{% url 'AltaPuertoPatch' %}">Nuevo Puerto Patch</a>
+  <ol>
+    {% for puertoPatch in puertosPatch %}
+      <li>
+        <a href="{% url 'EditarPuertoPatch' puertoPatch.id %}">{{ puertoPatch }}</a>
+      </li>
+    {% endfor %}
+  </ol>
+{% endblock %}

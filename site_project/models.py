@@ -100,4 +100,4 @@ class PuertoPatch(models.Model):
         verbose_name_plural = _("PuertosPatch")
 
     def __str__(self):
-        return self.nombre
+        return self.nombre + " " + self.patch.nombre

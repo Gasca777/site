@@ -30,10 +30,16 @@ class PatchForm(forms.ModelForm):
 class SwitchForm(forms.ModelForm):
     class Meta:
         model = Switch
-        fields = ("__all__")
+        fields = "__all__"
 
 
 class PuertoSwitchForm(forms.ModelForm):
     class Meta:
         model = PuertoSwitch
+        fields = "__all__"
+
+
+class PuertoPatchForm(forms.ModelForm):
+    class Meta:
+        model = PuertoPatch
         fields = "__all__"

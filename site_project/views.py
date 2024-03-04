@@ -258,3 +258,45 @@ def alta_puerto_switch(request, id=None):
 def eliminar_puerto_switch(request, id):
     PuertoSwitch.objects.get(pk=id).delete()
     return redirect('IndexPuertoSwitch')
+
+
+def index_puerto_patch(request):
+    puertosPatch = PuertoPatch.objects.all()
+    return render(request, 'puertoPatch/index.html', {
+        'puertosPatch': puertosPatch
+    })
+
+
+def alta_puerto_patch(request, id=None):
+    form = PuertoPatchForm()
+    mensaje = None
+    delete = False
+
+    if id:
+        puertoPatch = PuertoPatch.objects.get(pk=id)
+        form = PuertoPatchForm(instance=puertoPatch)
+        delete = True
+
+    if request.method == 'POST':
+
+        if id:
+            form = PuertoPatchForm(request.POST, instance=puertoPatch)
+        else:
+            form = PuertoPatchForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('IndexPuertoPatch')
+        else:
+            mensaje = 'Formulario invalido'
+
+    return render(request, 'puertoPatch/insert_update.html', {
+        'form': form,
+        'mensaje': mensaje,
+        'delete': delete
+    })
+
+
+def eliminar_puerto_patch(request, id):
+    PuertoPatch.objects.get(pk=id).delete()
+    return redirect('IndexPuertoPatch')
