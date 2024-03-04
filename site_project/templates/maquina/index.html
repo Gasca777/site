@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Index Maquina
+{% endblock %}
+
+{% block content %}
+  <a href="{% url 'AltaMaquina' %}">Nueva máquina</a>
+  <ol>
+    {% for maquina in maquinas %}
+      <li>
+        <a href="{% url 'EditarMaquina' maquina.id %}">{{ maquina }}</a>
+      </li>
+    {% endfor %}
+  </ol>
+{% endblock %}

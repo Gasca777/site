@@ -300,3 +300,45 @@ def alta_puerto_patch(request, id=None):
 def eliminar_puerto_patch(request, id):
     PuertoPatch.objects.get(pk=id).delete()
     return redirect('IndexPuertoPatch')
+
+
+def index_maquina(request):
+    maquinas = Maquina.objects.all()
+    return render(request, 'maquina/index.html', {
+        'maquinas': maquinas
+    })
+
+
+def alta_maquina(request, id=None):
+    form = MaquinaForm()
+    mensaje = None
+    delete = False
+
+    if id:
+        maquina = Maquina.objects.get(pk=id)
+        form = MaquinaForm(instance=maquina)
+        delete = True
+
+    if request.method == 'POST':
+
+        if id:
+            form = MaquinaForm(request.POST, instance=maquina)
+        else:
+            form = MaquinaForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('IndexMaquina')
+        else:
+            mensaje = 'Formulario invalido'
+
+    return render(request, 'maquina/insert_update.html', {
+        'form': form,
+        'mensaje': mensaje,
+        'delete': delete
+    })
+
+
+def eliminar_maquina(request, id):
+    Maquina.objects.get(pk=id).delete()
+    return redirect('IndexMaquina')

@@ -43,3 +43,9 @@ class PuertoPatchForm(forms.ModelForm):
     class Meta:
         model = PuertoPatch
         fields = "__all__"
+
+
+class MaquinaForm(forms.ModelForm):
+    class Meta:
+        model = Maquina
+        fields = "__all__"

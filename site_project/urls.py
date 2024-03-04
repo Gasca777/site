@@ -39,4 +39,10 @@ urlpatterns = [
          views.alta_puerto_patch, name='EditarPuertoPatch'),
     path('puerto_patch/delete/<int:id>',
          views.eliminar_puerto_patch, name='EliminarPuertoPatch'),
+    path('maquina/', views.index_maquina, name='IndexMaquina'),
+    path('maquina/insert_update/', views.alta_maquina, name='AltaMaquina'),
+    path('maquina/insert_update/<int:id>/',
+         views.alta_maquina, name='EditarMaquina'),
+    path('maquina/delete/<int:id>/',
+         views.eliminar_maquina, name='EliminarMaquina'),
 ]
